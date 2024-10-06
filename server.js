@@ -2,7 +2,7 @@ import express from 'express'
 import dotenv, { config } from 'dotenv'
 import userRoutes from './followup backend/routes/user routes.js'
 import { connectDB } from './followup backend/config/db.js'
-import bcrypt from 'bcrypt'
+
 
 dotenv.config()
 
@@ -17,3 +17,4 @@ app.listen(port, () =>{
     connectDB()
     console.log('server started at http://localhost: ' + port)
 })
+
