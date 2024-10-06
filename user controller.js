@@ -8,7 +8,7 @@ export const getallUser = async (req,res) =>{
         res.status(200).json({success: true, data : user})
 
     } catch (error) {
-        console.log("error in fetching products:", error.message)
+        console.log("error in fetching user:", error.message)
         res.status(500).json({success: false, message: "server error"})
         
     }
@@ -45,16 +45,18 @@ export const createUser =  async (req,res) => {
 
      
 
-    const newUser = new User(user)
+    
     try {
          const existingUser = await User.findOne({email});
+        
         if (existingUser) {
           return res.status(400).json({ message: 'User already exists' });
     }
+        const newUser = new User(user)
         await newUser.save()
         //sendVerificationEmail(newUser)
 
-        res.status(201).json({success: true, data: newUser, message: "User created successfully, please ceck your mail for verification"})
+        res.status(201).json({success: true, data: newUser, message: "User created successfully, please check your mail for verification"})
 
 
     } catch (error) {
