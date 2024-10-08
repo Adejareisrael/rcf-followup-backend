@@ -24,7 +24,7 @@ export const getUserbyID = async(req, res) =>{
 
     try {
 
-        const user = await user.findById(id)
+        const user = await User.findById(id)
         res.status(200).json({success: true, data: user})
 
     } catch (error) {
