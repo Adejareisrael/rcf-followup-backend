@@ -9,7 +9,7 @@ export const getallUser = async (req,res) =>{
         res.status(200).json({success: true, data : user})
 
     } catch (error) {
-        console.log("error in fetching products:", error.message)
+        console.log("error in fetching user:", error.message)
         res.status(500).json({success: false, message: "server error"})
         
     }
